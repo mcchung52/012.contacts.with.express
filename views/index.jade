@@ -1,0 +1,56 @@
+html
+  head
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='bower_components/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    title Contacts
+  body
+    .container
+      h1 Contacts
+      .row
+        table.table.table-striped
+          thead
+            tr
+              th.col-lg-2 Name
+              th.col-lg-2 E-mail
+              th.col-lg-2 Phone Number
+              th.col-lg-4 Address
+              th.col-lg-1 Group
+              th.col-lg-1 
+          tbody
+            each contact in contacts
+              tr
+                each el in contact
+                  td= el
+                td
+                  i.edit.fa.fa-pencil-square-o.fa-lg
+                  i.del.fa.fa-trash-o.fa-lg
+      button.btn.btn-primary(data-toggle="modal" data-target="#myModal") New
+
+      
+    script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='/js/indexPage.js')
+
+
+//-     <!-- Button trigger modal -->
+//- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+//-   Launch demo modal
+//- </button>
+
+//- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+//-   <div class="modal-dialog" role="document">
+//-     <div class="modal-content">
+//-       <div class="modal-header">
+//-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+//-         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
+//-       </div>
+//-       <div class="modal-body">
+//-         ...
+//-       </div>
+//-       <div class="modal-footer">
+//-         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+//-         <button type="button" class="btn btn-primary">Save changes</button>
+//-       </div>
+//-     </div>
+//-   </div>
+//- </div>

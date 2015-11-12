@@ -1,0 +1,25 @@
+html
+  head
+    link(rel='stylesheet', href='bower_components/bootstrap/dist/css/bootstrap.min.css')
+    link(rel='stylesheet', href='bower_components/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/css/style.css')
+    title Create Contact
+  body
+    .container
+      h1 Create Contact
+      .row
+        |       Name: 
+        input#name(type='text', value='Mr. Anderson')
+        |       E-mail:
+        input#email(type='email')
+        |       Phone Number:
+        input#phone(type='tel')
+        |       Address:
+        input#addr(type='text')
+        |       Group:
+        input#group(type='text')
+        //input#submit.btn.btn-primary(type='submit')
+        a.btn.btn-primary#submit(href='/') Save
+        a.btn.btn-primary(href='/') Cancel
+    script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='/js/createPage.js')
