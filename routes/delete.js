@@ -5,13 +5,14 @@ var router = express.Router();
 
 var Contact = require('../models/contact');
 
-router.get('/', function(req, res){
-  Contact.getAll(function(err,list){
-    if(err) {
-      // return res.status(400).send(err);
+router.post('/:id', function(req, res){
+  Contact.delete(req.params.id, function(err){
+    if (err) {
       res.status(400).send(err);
     }
-    res.render('index',{ contacts: list });
+    else {
+      res.send();
+    }
   });
 });
 

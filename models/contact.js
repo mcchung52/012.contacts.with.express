@@ -11,7 +11,6 @@ Contact.getAll = function(cb) {
     else {
       var list = JSON.parse(data)
       cb(null, list);
-      // cb(null, ''+data);
     }
   });
 };
@@ -19,13 +18,7 @@ Contact.getAll = function(cb) {
 Contact.create = function(contact,cb){
   Contact.getAll(function(err,list){
     if(err) return cb(err);
-    // console.log(typeof list);
-    // console.log('inside contact.create ', list);
-    // console.log('inside contact.create ', contact);
-    // var data = JSON.parse(list);
-    // console.log('inside contact.create '+data);
     list.push(contact);
-    console.log(list);
     var data = JSON.stringify(list);
     fs.writeFile('db/contacts.json', data, function(err){
       if(err) return cb(err);
@@ -37,14 +30,19 @@ Contact.create = function(contact,cb){
 Contact.edit = function(i,elem,cb){
   Contact.getAll(function(err,list){
     if(err) return cb(err);
-    // console.log(typeof list);
-    // console.log('inside contact.create ', list);
-    // console.log('inside contact.create ', contact);
-    // var data = JSON.parse(list);
-    // console.log('inside contact.create '+data);
-    
     list.splice(i,1,elem);
-    console.log(list);
+    var data = JSON.stringify(list);
+    fs.writeFile('db/contacts.json', data, function(err){
+      if(err) return cb(err);
+      cb(null);
+    });
+  });
+};
+
+Contact.delete = function(i,cb){
+  Contact.getAll(function(err,list){
+    if(err) return cb(err);
+    list.splice(i,1);
     var data = JSON.stringify(list);
     fs.writeFile('db/contacts.json', data, function(err){
       if(err) return cb(err);
