@@ -20,37 +20,90 @@ html
           tbody
             each contact in contacts
               tr
-                each el in contact
-                  td= el
+                each el, key in contact
+                  td(class=key)= el
                 td
                   i.edit.fa.fa-pencil-square-o.fa-lg
                   i.del.fa.fa-trash-o.fa-lg
-      button.btn.btn-primary(data-toggle="modal" data-target="#myModal") New
+      button.btn.btn-primary(data-toggle="modal" data-target="#addNew") +
 
-      
+    #msgModal.modal.fade(role='dialog')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal') ×
+              .modal-body
+              .modal-footer
+                button#close.btn.btn-primary(type='button', data-dismiss='modal') Close
+
+    #addNew.modal.fade(role='dialog')
+          .modal-dialog
+            .modal-content
+              .modal-header
+                button.close(type='button', data-dismiss='modal') ×
+              .modal-body
+                table
+                  tr
+                    td.col-xs-1
+                      label Name:
+                    td.col-xs-6
+                      input#name(type='text', value='Mr. Anderson')
+                  tr
+                    td.col-xs-1
+                      label E-mail:
+                    td.col-xs-6
+                      input#email(type='email')
+                  tr
+                    td.col-xs-1
+                      label Phone Number:
+                    td.col-xs-6
+                      input#phone(type='tel')
+                  tr
+                    td.col-xs-1
+                      label Address:
+                    td.col-xs-6
+                      input#addr(type='text')
+                  tr
+                    td.col-xs-1
+                      label Group:
+                    td.col-xs-6
+                      input#group(type='text')
+                button#save.btn.btn-primary.col-xs-offset-3(type='button', data-dismiss='modal') Save
+
+    //- #editModal.modal.fade(role='dialog')
+    //-   .modal-dialog
+    //-     .modal-content
+    //-       .modal-header
+    //-         button.close(type='button', data-dismiss='modal') ×
+    //-       .modal-body
+    //-         table
+    //-           tr
+    //-             td.col-xs-1
+    //-               label Name:
+    //-             td.col-xs-6
+    //-               input#nameE(type='text', value='Mr. Anderson')
+    //-           tr
+    //-             td.col-xs-1
+    //-               label E-mail:
+    //-             td.col-xs-6
+    //-               input#emailE(type='email')
+    //-           tr
+    //-             td.col-xs-1
+    //-               label Phone Number:
+    //-             td.col-xs-6
+    //-               input#phoneE(type='tel')
+    //-           tr
+    //-             td.col-xs-1
+    //-               label Address:
+    //-             td.col-xs-6
+    //-               input#addrE(type='text')
+    //-           tr
+    //-             td.col-xs-1
+    //-               label Group:
+    //-             td.col-xs-6
+    //-               input#groupE(type='text')
+    //-         button#saveE.btn.btn-primary.col-xs-offset-3(type='button', data-dismiss='modal') Save
+
     script(src='bower_components/jquery/dist/jquery.min.js')
+    script(src='bower_components/bootstrap/dist/js/bootstrap.min.js')
     script(src='/js/indexPage.js')
-
-
-//-     <!-- Button trigger modal -->
-//- <button type="button" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-//-   Launch demo modal
-//- </button>
-
-//- <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-//-   <div class="modal-dialog" role="document">
-//-     <div class="modal-content">
-//-       <div class="modal-header">
-//-         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-//-         <h4 class="modal-title" id="myModalLabel">Modal title</h4>
-//-       </div>
-//-       <div class="modal-body">
-//-         ...
-//-       </div>
-//-       <div class="modal-footer">
-//-         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-//-         <button type="button" class="btn btn-primary">Save changes</button>
-//-       </div>
-//-     </div>
-//-   </div>
-//- </div>

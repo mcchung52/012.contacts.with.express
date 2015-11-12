@@ -15,9 +15,11 @@ router.get('/', function(req, res){
   //res.render();
 });
 
-router.post('/', function(req, res){
-  var contact = req.body.contact;
-  Contact.create(caontact,function(err){
+router.post('/:id', function(req, res){
+  console.log('post edit',req.params.id);
+  console.log('post edit',req.body);
+  //var contact = req.params.contact;
+  Contact.edit(req.params.id, req.body, function(err){
     if (err) {
       res.status(400).send(err);
     }
