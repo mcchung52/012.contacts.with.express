@@ -54,8 +54,8 @@ function saveClicked() {  //modal dialog
       $tr.children('.addr').text(obj.addr);
       $tr.children('.group').text(obj.group);
       $p.text('Contact updated successfully.');
-      $('#msgModal .modal-body').empty().prepend($p);//placing these under
-      $('#msgModal').modal('show');         //fail executed them so, though
+      $('#msgModal .modal-body').empty().prepend($p);//placing these below
+      $('#msgModal').modal('show');         //fail executed them instantly, though
       trIdx = -1;                           //redundant, putting them here
     })
     .fail(function(data){
